@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <SideNav/>
-        <TitleBar/>
-        <Home/>
+        <TitleBar v-bind:sectionTitle='sectionTitle'/>
+        <Home v-bind:cards='cards'/>
     </div>
 </template>
 
@@ -17,6 +17,19 @@
             SideNav,
             TitleBar,
             Home
+        },
+        data : function() {
+            return {
+                sectionTitle : 'Thulj.fr - Site WEB d\'un développeur passionné',
+                cards : [
+                    {
+                        title:'Le site fait peau neuve !',
+                        description:'I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.',
+                        publishDate:'27/08/2018',
+                        section:'newspaper'
+                    }
+                ]
+            }
         }
     }
 </script>

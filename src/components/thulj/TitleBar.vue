@@ -1,7 +1,7 @@
 <template>
     <nav class="white">
         <div class="nav-wrapper ">
-            <span class="brand-logo black-text">{{sectionTitle}}</span>
+            <span class="brand-logo black-text"><h5>{{sectionTitle}}</h5></span>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="sass.html">Sass</a></li>
                 <li><a href="badges.html">Components</a></li>
@@ -14,9 +14,7 @@
 <script>
     export default {
         name: "TitleBar",
-        data : function() {
-            return { sectionTitle : 'Hey You !'}
-        }
+        props: ['sectionTitle']
     }
 </script>
 
