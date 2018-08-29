@@ -1,12 +1,7 @@
 <template>
     <nav class="white">
         <div class="nav-wrapper ">
-            <span class="brand-logo black-text"><h5>{{sectionTitle}}</h5></span>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li>
-            </ul>
+            <span class="brand-logo black-text">{{sectionTitle}}</span>
         </div>
     </nav>
 </template>
@@ -19,6 +14,6 @@
 </script>
 
 <style scoped>
-    nav{position:fixed;top:0;padding-left: 120px;}
-    .brand-logo{font-size:18px;text-transform: uppercase;}
+    nav{position:fixed;top:0;padding-left: 120px;z-index:50}
+    .brand-logo{font-size:18px;}
 </style>

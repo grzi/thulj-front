@@ -1,5 +1,5 @@
 <template>
-    <div class="col s12 m4">
+    <div class="col s12 m6 l4">
         <div class="card blue-grey darken-1">
             <div class="card-content white-text">
                 <div class="badge blue-grey darken-3"><font-awesome-icon :icon="card.section" size="2x"/></div>
@@ -23,6 +23,7 @@
 </script>
 
 <style scoped>
+    .card{z-index: 1}
     .card-action{text-align: right}
     .badge{position: absolute; right: 0; top: 0; padding: 10px;}
     .datePublish{margin-top:25px;font-size:12px;}
