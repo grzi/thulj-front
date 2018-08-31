@@ -10,13 +10,13 @@
                     </p>
                     <a target="blank" href="https://www.facebook.com/thulliezj"
                        class="waves-effect waves-light"><img
-                            src="../../assets/facebook.png" class="icon"/></a> <a target="blank"
-                                                                                  href="https://www.linkedin.com/in/jeremythulliez/"
-                                                                                  class="waves-effect waves-light"><img
-                        src="../../assets/linkedin.png" class="icon"/></a> <a target="blank"
-                                                                              href="https://github.com/grzi/"
-                                                                              class="waves-effect waves-light"><img
-                        src="../../assets/github.png" class="icon"/></a>
+                            src="../../../assets/facebook.png" class="icon"/></a> <a target="blank"
+                                                                                     href="https://www.linkedin.com/in/jeremythulliez/"
+                                                                                     class="waves-effect waves-light"><img
+                        src="../../../assets/linkedin.png" class="icon"/></a> <a target="blank"
+                                                                                 href="https://github.com/grzi/"
+                                                                                 class="waves-effect waves-light"><img
+                        src="../../../assets/github.png" class="icon"/></a>
                 </div>
                 <div class="col l6 s12">
                     <h5 class="white-text">Liens utiles</h5>

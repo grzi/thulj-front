@@ -17,8 +17,10 @@
     nav {
         position: fixed;
         top: 0;
-        padding-left: 120px;
         z-index: 50
+    }
+    @media only screen and (min-width: 992px){
+        nav{ padding-left: 120px;}
     }
 
     .brand-logo {

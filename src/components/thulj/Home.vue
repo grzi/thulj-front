@@ -1,22 +1,21 @@
 <template>
   <div>
-    <SideNav/>
+    <SideNav v-bind:activeSection='"home"'/>
     <TitleBar v-bind:sectionTitle='sectionTitle'/>
     <div class="content">
       <div class="container">
         <div class="row"><h4><b>Bienvenue ! </b></h4></div>
         <div class="row">
           <div class="row margin-top-20">
-            <div class="col s8 light">
+            <div class="col s12 m8 light">
               <div>Je suis <b>Grzi</b> (Jérémy Thulliez), développeur passionné et curieux de nouvelles
                 technologies.
-                J'ai créé ce site web afin de pouvoir centraliser mes différentes passions, découvertes et
-                créations.
+                J'ai créé ce site web afin de pouvoir centraliser mes différentes passions, découvertes
+                et créations
               </div>
               <div class="margin-top-20">
-                En ce qui me concerne, je suis principalement orienté vers le monde de la technologie Objet
-                et
-                web.
+                En ce qui me concerne, je suis principalement orienté vers le monde de la technologie
+                Objet et web.
                 J'ai découvert les joies du JAVA en 2010, et n'ai cessé depuis de la cultiver, autant de
                 manière
                 personnelle que professionnelle.
@@ -24,7 +23,7 @@
             </div>
             <div class="col l1">
             </div>
-            <div class="col l3">
+            <div class="col s12 m3">
               En savoir plus
               <div class="decaleLiens"><a>Curriculum Vitae</a></div>
               <div class="decaleLiens"><a>Portfolio</a></div>
@@ -63,7 +62,6 @@
                   </p>
                 </div>
               </div>
-
               <div class="col s6 m6 l3">
                 <div class="icon-block">
                   <h2 class="center brown-text">
@@ -86,7 +84,8 @@
                   </h2>
                   <h5 class="center">Java</h5>
 
-                  <p class="light center">Le JAVA et moi sommes inséparables. Je ne me lasse pas de cet
+                  <p class="light center">Le JAVA et moi sommes inséparables. Je ne me lasse pas de
+                    cet
                     univers dans lequel j'apprend chaque jour. </p>
                 </div>
               </div>
@@ -106,10 +105,10 @@
 </template>
 
 <script>
-  import SideNav from '@/components/thulj/SideNav.vue'
-  import TitleBar from '@/components/thulj/TitleBar.vue'
-  import Footer from '@/components/thulj/Footer.vue'
-  import Card from '@/components/thulj/Card.vue'
+  import SideNav from '@/components/thulj/commons/SideNav.vue'
+  import TitleBar from '@/components/thulj/commons/TitleBar.vue'
+  import Footer from '@/components/thulj/commons/Footer.vue'
+  import Card from '@/components/thulj/commons/Card.vue'
 
   export default {
     name: 'Home',
@@ -120,11 +119,11 @@
       TitleBar
     },
     created () {
-      document.title = "Accueil - Thulj.fr"
+      document.title = 'Accueil - Thulj.fr'
     },
     data: function () {
       return {
-        sectionTitle: 'Accueil',
+        sectionTitle: 'Thulj > Accueil',
         cards: [
           {
             title: 'Le site fait peau neuve !',
@@ -213,11 +212,6 @@
 <style scoped>
   .margin-top-20 {
     margin-top: 20px;
-  }
-
-  .content {
-    padding-left: 105px;
-    margin-top: 70px;
   }
 
   #index-banner {
