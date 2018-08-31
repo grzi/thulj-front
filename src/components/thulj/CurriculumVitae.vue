@@ -1,58 +1,79 @@
 <template>
-  <div>
-    <SideNav v-bind:activeSection='"cv"'></SideNav>
-    <TitleBar v-bind:sectionTitle='sectionTitle'></TitleBar>
+    <div>
+        <SideNav v-bind:activeSection='"cv"'></SideNav>
+        <TitleBar v-bind:sectionTitle='sectionTitle'></TitleBar>
 
-    <div class="content">
-      <div class="container">
-        <div class="row"><h4><b>{{cv.name}}</b></h4></div>
-        <div class="row"><h6>{{cv.status}}</h6></div>
-        <div class="row">
-          <div class="col s12 m6">
-            <h3 class="center brown-text">
-              <font-awesome-icon icon="question"/>
-            </h3>
-            <h5 class="center">Présentation</h5>
-            <p class="light italic center">
-              {{cv.presentation}}
-            </p>
-          </div>
+        <div class="content">
+            <div class="container">
+                <div class="row"><h4><b>{{cv.name}}</b></h4></div>
+                <div class="row"><h6>{{cv.status}}</h6></div>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <h3 class="center brown-text">
+                            <font-awesome-icon icon="question"/>
+                        </h3>
+                        <h5 class="center">Présentation</h5>
+                        <p class="light italic center">
+                            {{cv.presentation}}
+                        </p>
+                    </div>
 
-          <div class="col s12 m6">
-            <h5>
-              <b>Intérêts techniques</b>
-            </h5>
-            <div v-for="skill in cv.skills" v-bind:key="skill.name" class='techSkill'>
-              <div class="techSkillName pink lighten-2">
-                <span class="skillDescr light">{{skill.name}}</span>
-              </div>
-              <div class="positionAbsolute top0 left0">
-                <div :class="'techSkillProgress  skillProgress_w' + skill.note">
-                  <div class="pink progressBar">&nbsp;</div>
+                    <div class="col s12 m6">
+                        <h5>
+                            <b>Intérêts techniques</b>
+                        </h5>
+                        <div v-for="skill in cv.skills" v-bind:key="skill.name" class='techSkill'>
+                            <div class="techSkillName pink lighten-2">
+                                <span class="skillDescr light">{{skill.name}}</span>
+                            </div>
+                            <div class="positionAbsolute top0 left0">
+                                <div :class="'techSkillProgress  skillProgress_w' + skill.note">
+                                    <div class="pink progressBar">&nbsp;</div>
+                                </div>
+                                <div class="clearBoth"></div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="clearBoth"></div>
-              </div>
-
+                <div class="separator"></div>
+                <h5 class="title">
+                    <b>Expériences</b>
+                </h5>
+                <div v-for="exp in cv.experiences" v-bind:key="exp.name">
+                    <div class="col s12 m6 l4">
+                        <div class="card white">
+                            <div class="card-content">
+                                <span><b>{{exp.name}}</b></span> -
+                                <span class="pink-text">{{exp.enterprise}}</span> -
+                                <span><i>{{exp.date}}</i></span>
+                                <div class="light description">{{exp.description}}</div>
+                                <div v-for="skill in exp.skills" v-bind:key="skill" class="chip">
+                                    {{skill}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="separator"></div>
+                <h5 class="title">
+                    <b>Compétences techniques</b>
+                </h5>
+                <div v-for="skill in cv.techSkills" v-bind:key="skill" class="chip">
+                    {{skill}}
+                </div>
+                <h5 class="title">
+                    <b>Autres compétences</b>
+                </h5>
+                <div v-for="skill in cv.otherSkills" v-bind:key="skill" class="chip">
+                    {{skill}}
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="separator"></div>
-        <h5>
-          <b>Expériences</b>
-        </h5>
-        <div v-for="exp in cv.experiences" v-bind:key="exp.name">
 
         </div>
-        <div class="separator"></div>
-        <h5>
-          <b>Généralités</b>
-        </h5>
-      </div>
 
+        <Footer></Footer>
     </div>
-
-    <Footer></Footer>
-  </div>
 
 </template>
 
@@ -92,25 +113,26 @@
             {
               name: 'Vue JS',
               note: 7
-            },
-            {
-              name: 'Docker',
-              note: 6
-            },
-            {
-              name: 'Kafka',
-              note: 5
-            },
-            {
-              name: 'Unity 3D',
-              note: 8
-            },
-            {
-              name: 'Vue JS',
-              note: 7
             }
-
-          ]
+          ],
+          experiences: [
+            {
+              name: 'TEST Experience',
+              enterprise: 'CGI France',
+              date: 'Depuis 2018',
+              description: 'GNA GNA GNA GNA GNA GNA GNA GNA GNA GNA',
+              skills: ['dezdze', 'qsdqsdqs', 'dsdsfdsfdso']
+            },
+            {
+              name: 'TEST Experience',
+              enterprise: 'CGI France',
+              date: 'Depuis 2018',
+              description: 'GNA GNA GNA GNA GNA GNA GNA GNA GNA GNA',
+              skills: ['dezdze', 'qsdqsdqs', 'dsdsfdsfdso']
+            }
+          ],
+          techSkills: ['JAVA', 'C#', 'Kotlin'],
+          otherSkills: ['Marketing']
         }
       }
     }
@@ -118,151 +140,166 @@
 </script>
 
 <style scoped>
-  h6 {
-    margin: -1.233rem 0 .46rem 0;
-  }
+    .description {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
 
-  .techSkill {
-    width: 100%;
-    background: #EEE;
-    margin-top: 10px;
-    position: relative;
-  }
+    .title {
+        margin-bottom: 30px;
+    }
 
-  .techSkillName {
-    width: 100px;
-    padding: 5px;
-    text-align: center;
-    color: white;
-    position: relative;
-    z-index: 50
-  }
+    h6 {
+        margin: -1.233rem 0 .46rem 0;
+    }
 
-  .techSkillProgress {
-    float: left;
-  }
+    .techSkill {
+        width: 100%;
+        background: #EEE;
+        margin-top: 10px;
+        position: relative;
+    }
 
-  .techSkillNote {
-    padding: 5px;
-    text-align: right;
-    color: #555;
-    float: left;
-    padding-right: 15px;
-  }
+    .techSkillName {
+        width: 100px;
+        padding: 5px;
+        text-align: center;
+        color: white;
+        position: relative;
+        z-index: 25
+    }
 
-  .skillProgressContainer {
-    float: left;
-  }
+    .techSkillProgress {
+        float: left;
+    }
 
-  .skillDescr {
-    font-size: 14px;
-  }
+    .techSkillNote {
+        padding: 5px;
+        text-align: right;
+        color: #555;
+        float: left;
+        padding-right: 15px;
+    }
 
-  .positionAbsolute {
-    position: absolute;
-    z-index: 5;
-    width: 100%;
-  }
+    .skillProgressContainer {
+        float: left;
+    }
 
-  .skillProgress_w1 {
-    width: 45%;
-  }
+    .skillDescr {
+        font-size: 14px;
+    }
 
-  .skillProgress_w2 {
-    width: 50%;
-  }
+    .positionAbsolute {
+        position: absolute;
+        z-index: 5;
+        width: 100%;
+    }
 
-  .skillProgress_w3 {
-    width: 55%;
-  }
+    .skillProgress_w1 {
+        width: 45%;
+    }
 
-  .skillProgress_w4 {
-    width: 60%;
-  }
+    .skillProgress_w2 {
+        width: 50%;
+    }
 
-  .skillProgress_w5 {
-    width: 65%;
-  }
+    .skillProgress_w3 {
+        width: 55%;
+    }
 
-  .skillProgress_w6 {
-    width: 70%;
-  }
+    .skillProgress_w4 {
+        width: 60%;
+    }
 
-  .skillProgress_w7 {
-    width: 75%;
-  }
+    .skillProgress_w5 {
+        width: 65%;
+    }
 
-  .skillProgress_w8 {
-    width: 80%;
-  }
+    .skillProgress_w6 {
+        width: 70%;
+    }
 
-  .skillProgress_w9 {
-    width: 85%;
-  }
+    .skillProgress_w7 {
+        width: 75%;
+    }
 
-  .skillProgress_w10 {
-    width: 90%;
-  }
+    .skillProgress_w8 {
+        width: 80%;
+    }
 
-  .top0 {
-    top: 0;
-  }
+    .skillProgress_w9 {
+        width: 85%;
+    }
 
-  .left0 {
-    left: 0;
-  }
+    .skillProgress_w10 {
+        width: 90%;
+    }
 
-  .skillNote_w1 {
-    width: 55%;
-  }
+    .top0 {
+        top: 0;
+    }
 
-  .skillNote_w2 {
-    width: 50%;
-  }
+    .left0 {
+        left: 0;
+    }
 
-  .skillNote_w3 {
-    width: 45%;
-  }
+    .skillNote_w1 {
+        width: 55%;
+    }
 
-  .skillNote_w4 {
-    width: 40%;
-  }
+    .skillNote_w2 {
+        width: 50%;
+    }
 
-  .skillNote_w5 {
-    width: 35%;
-  }
+    .skillNote_w3 {
+        width: 45%;
+    }
 
-  .skillNote_w6 {
-    width: 30%;
-  }
+    .skillNote_w4 {
+        width: 40%;
+    }
 
-  .skillNote_w7 {
-    width: 25%;
-  }
+    .skillNote_w5 {
+        width: 35%;
+    }
 
-  .skillNote_w8 {
-    width: 20%;
-  }
+    .skillNote_w6 {
+        width: 30%;
+    }
 
-  .skillNote_w9 {
-    width: 15%;
-  }
+    .skillNote_w7 {
+        width: 25%;
+    }
 
-  .skillNote_w10 {
-    width: 10%;
-  }
+    .skillNote_w8 {
+        width: 20%;
+    }
 
-  .progressBar {
-    width: 0%;
-    padding: 5px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+    .skillNote_w9 {
+        width: 15%;
+    }
 
-  .separator {
-    width: 40%;
-    margin-left: 30%;
-    height: 1px;
-    border-bottom: 1px dashed lightgrey;
-  }
+    .skillNote_w10 {
+        width: 10%;
+    }
+
+    .progressBar {
+        width: 0%;
+        padding: 5px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .separator {
+        width: 40%;
+        margin-left: 30%;
+        height: 1px;
+        border-bottom: 1px dashed lightgrey;
+    }
+
+    .experience {
+        padding: 15px;
+        background: white;
+    }
+    Footer{margin-top:25px;}
 </style>
