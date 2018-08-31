@@ -1,21 +1,31 @@
 import Vue from 'vue'
-import App from './App.vue'
-
-Vue.config.productionTip = false
-
+import {router} from './utils/router-config.js'
 import './../node_modules/materialize-css/dist/js/materialize.min.js'
 import './../node_modules/materialize-css/dist/css/materialize.min.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee,faIdCard,faUtensils, faNewspaper,faCode,faHome,faGamepad,faHeart,faBolt, faLightbulb } from '@fortawesome/free-solid-svg-icons'
+import {
+  faCoffee,
+  faIdCard,
+  faUtensils,
+  faNewspaper,
+  faCode,
+  faHome,
+  faGamepad,
+  faHeart,
+  faBolt,
+  faLightbulb
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faCoffee,faIdCard,faUtensils,faNewspaper,faCode,faHome,faGamepad,faHeart,faLightbulb,faBolt)
+library.add(faCoffee, faIdCard, faUtensils, faNewspaper, faCode, faHome, faGamepad, faHeart, faLightbulb, faBolt)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  render: h => h(App)
-}).$mount('#app')
+  el: '#app',
+  router,
+  render: h => h(require('./App.vue').default)
+})

@@ -7,13 +7,21 @@
 </template>
 
 <script>
-    export default {
-        name: "TitleBar",
-        props: ['sectionTitle']
-    }
+  export default {
+    name: 'TitleBar',
+    props: ['sectionTitle']
+  }
 </script>
 
 <style scoped>
-    nav{position:fixed;top:0;padding-left: 120px;z-index:50}
-    .brand-logo{font-size:18px;}
+    nav {
+        position: fixed;
+        top: 0;
+        padding-left: 120px;
+        z-index: 50
+    }
+
+    .brand-logo {
+        font-size: 18px;
+    }
 </style>
